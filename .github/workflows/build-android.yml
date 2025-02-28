@@ -21,7 +21,7 @@ jobs:
       - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
-          java-version: '11'
+          java-version: '11' # اگر پروژه نیاز به نسخه دیگری دارد، این مقادیر را به روز کنید
           distribution: 'temurin'
 
       # گام 3: تنظیم Gradle Wrapper
@@ -36,12 +36,12 @@ jobs:
             ${{ runner.os }}-gradle-
 
       # گام 4: ساخت پروژه با Gradle
-      - name: Build with Gradle
-        run: ./gradlew assembleDebug
+      - name: Build with Gradle (with debug logs)
+        run: ./gradlew assembleDebug --stacktrace --info
 
       # گام 5: ذخیره فایل APK به عنوان Artifact
       - name: Upload APK
-        uses: actions/upload-artifact@v4 # <<== نسخه را به v4 یا بالاتر بروزرسانی کنید
+        uses: actions/upload-artifact@v4
         with:
           name: android-apk
           path: app/build/outputs/apk/debug/app-debug.apk
