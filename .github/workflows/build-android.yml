@@ -39,13 +39,9 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew assembleDebug
 
-      # گام 5: بررسی خروجی ساخت
-      - name: Check build output
-        run: ls app/build/outputs/apk/debug/
-
-      # گام 6: ذخیره فایل APK به عنوان Artifact
+      # گام 5: ذخیره فایل APK به عنوان Artifact
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 # <<== نسخه را به v4 یا بالاتر بروزرسانی کنید
         with:
           name: android-apk
           path: app/build/outputs/apk/debug/app-debug.apk
