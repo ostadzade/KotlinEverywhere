@@ -1,5 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+//تست
 buildscript {
     ext.kotlin_version = '1.8.20' // به روزرسانی Kotlin
     repositories {
